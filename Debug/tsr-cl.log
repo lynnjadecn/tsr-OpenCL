@@ -1,0 +1,18 @@
+﻿Build started 2015/5/19 23:03:10.
+     1>Project "D:\android_workplace\tsr-cl\tsr-cl\tsr-cl.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt FaceFeature.cpp LightPrep.cpp signDcl.cpp "tsr-cl.cpp"
+         tsr-cl.cpp
+     1>d:\android_workplace\tsr-cl\tsr-cl\tsr-cl.cpp(3): fatal error C1083: Cannot open include file: 'cv.h': No such file or directory
+         signDcl.cpp
+     1>d:\android_workplace\tsr-cl\tsr-cl\signdcl.h(4): fatal error C1083: Cannot open include file: 'cv.h': No such file or directory
+         LightPrep.cpp
+     1>d:\android_workplace\tsr-cl\tsr-cl\lightprep.h(10): fatal error C1083: Cannot open include file: 'cv.h': No such file or directory
+         FaceFeature.cpp
+     1>d:\android_workplace\tsr-cl\tsr-cl\facefeature.h(8): fatal error C1083: Cannot open include file: 'cv.h': No such file or directory
+         Generating Code...
+     1>Done Building Project "D:\android_workplace\tsr-cl\tsr-cl\tsr-cl.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:00.40
