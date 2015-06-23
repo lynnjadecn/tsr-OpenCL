@@ -1,4 +1,3 @@
-
 #include "LightPrep.h"
 //#include "cvUtils.h"
 
