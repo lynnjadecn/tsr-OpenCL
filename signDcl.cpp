@@ -335,7 +335,7 @@ void CsignDcl::TrafficSignDwithColor(IplImage*image,IplImage*imagegray,IplImage*
 	CvSeq* contour = 0;
 	int height=image->height;
 	int width=image->width;
-	int classID = -1;
+	int classID = -1;//int classID = -1;这个地方我改了
 	cvFindContours(imagegray, storage, &contour, sizeof(CvContour), CV_RETR_TREE, CV_CHAIN_APPROX_SIMPLE );
 	for( ; contour != 0; contour = contour->h_next )
 	{
@@ -386,7 +386,7 @@ void CsignDcl::TrafficSignDwithColor(IplImage*image,IplImage*imagegray,IplImage*
 						cvResetImageROI(image);
 						cvResize(recogimage,recogimageRe);
 						cvCvtColor(recogimageRe,recogimageReG,CV_BGR2GRAY);
-						classID = SingleRectRecog(recogimageReG);
+						classID = 1;//SingleRectRecog(recogimageReG);
 					    //mtx=Mat(recogimageReG);
 					   // classID = model->predict(mtx);
 						//classID = 1;
@@ -401,7 +401,7 @@ void CsignDcl::TrafficSignDwithColor(IplImage*image,IplImage*imagegray,IplImage*
 							//nTemp = &classID;
 							signs->push_back(classID);
 						}
-
+						//TrafficLightRecognition(recogimage); //这一行是我加的
 						break;
 					case 4:
 						recogimage = cvCreateImage(cvSize(Recog_rect.width,Recog_rect.height),8,3);
@@ -413,7 +413,7 @@ void CsignDcl::TrafficSignDwithColor(IplImage*image,IplImage*imagegray,IplImage*
 						//Mat mtx(recogimage);
 						cvResize(recogimage, recogimageRe);
 						cvCvtColor(recogimageRe,recogimageReG,CV_BGR2GRAY);
-						classID = SingleRectRecog(recogimageReG);
+						classID = 1;//SingleRectRecog(recogimageReG);
 					  // mtx=Mat(recogimageReG);
 					   //classID = model->predict(mtx);
 
@@ -429,7 +429,7 @@ void CsignDcl::TrafficSignDwithColor(IplImage*image,IplImage*imagegray,IplImage*
 							//nTemp = &classID;
 							signs->push_back(classID);
 						}
-
+						//TrafficLightRecognition(recogimage); //这一行是我加的
 						break;
 					case 2:
 						recogimage = cvCreateImage(cvSize(Recog_rect.width,Recog_rect.height),8,3);
@@ -442,7 +442,7 @@ void CsignDcl::TrafficSignDwithColor(IplImage*image,IplImage*imagegray,IplImage*
 						cvCvtColor(recogimageRe,recogimageReG,CV_BGR2GRAY);
 					   // mtx=Mat(recogimageReG);
 					   //classID = model->predict(mtx);
-						classID = SingleRectRecog(recogimageReG);
+						classID = 1;//SingleRectRecog(recogimageReG);
 						cvReleaseImage(&recogimage);
 						if (classID!=22&&classID!=23&&classID!=26&&classID!=27&&classID!=29)
 						{
@@ -454,7 +454,7 @@ void CsignDcl::TrafficSignDwithColor(IplImage*image,IplImage*imagegray,IplImage*
 							//nTemp = &classID;
 							signs->push_back(classID);
 						}
-
+						//TrafficLightRecognition(recogimage); //这一行是我加的
 						break;
 					case 1:
 						recogimage = cvCreateImage(cvSize(Recog_rect.width,Recog_rect.height),8,3);
@@ -468,11 +468,12 @@ void CsignDcl::TrafficSignDwithColor(IplImage*image,IplImage*imagegray,IplImage*
 						{
 							classID = -1;
 						}
+						//TrafficLightRecognition(recogimage); //这一行是我加的
 						break;
 					}
-					if (classID!=-1)
+					//if (classID!=-1)
 					{
-						cvRectangle( image, cvPoint(rect_max.x+r.x,rect_max.y+r.y),cvPoint(rect_max.x+rect_max.width+r.x,rect_max.y+rect_max.height+r.y),CV_RGB(0,255,255), 3 );
+						cvRectangle( image, cvPoint(rect_max.x+r.x,rect_max.y+r.y),cvPoint(rect_max.x+rect_max.width+r.x,rect_max.y+rect_max.height+r.y),CV_RGB(255,0,0), 3 );
 						RecogResult[classID] = TRUE;
 					}
 					///////////////////////////////////////
@@ -480,6 +481,7 @@ void CsignDcl::TrafficSignDwithColor(IplImage*image,IplImage*imagegray,IplImage*
 				cvReleaseMemStorage(&storage1);
 			// }
 			}
+			//TrafficLightRecognition(detectImage); //这一行是我加的
 			cvReleaseImage(&detectImage);
 		}
 	}
